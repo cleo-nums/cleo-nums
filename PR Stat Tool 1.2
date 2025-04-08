@@ -1,17 +1,16 @@
 import statistics
 
-num4 = int(input("Enter frequency for 4: "))
-num3 = int(input("Enter frequency for 3: "))
-num2 = int(input("Enter frequency for 2: "))
-num1 = int(input("Enter frequency for 1: "))
+num4 = int(input("Enter frequency for 4: "))  # Strongly Agree 
+num3 = int(input("Enter frequency for 3: "))  # Agree
+num2 = int(input("Enter frequency for 2: "))  # Disagree
+num1 = int(input("Enter frequency for 1: "))  # Strongly Disagree
 
-data = [4] * num4 + [3] * num3 + [2] * num2 + [1] * num1
+data = [4] * num4 + [3] * num3 + [2] * num2 + [1] * num1  # Arrange data for double checks.
 
-mean = statistics.mean(data)
-median = statistics.median(data)
+mean = round(statistics.mean(data), 2)
+median = round(statistics.median(data), 2)
 mode = statistics.mode(data)
-std_dev = round(statistics.stdev(data), 2) if len(data) > 1 else 0  # Rounded to 2 decimal places
-rounded_mean = round(mean, 2)  # Rounded to two decimal places
+std_dev = round(statistics.stdev(data), 2) if len(data) > 1 else 0
 
 print(f"Data: {data}")
 print(f"Mean: {mean}")
