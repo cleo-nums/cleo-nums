@@ -1,0 +1,20 @@
+import statistics
+
+num4 = int(input("Enter frequency for 4: "))
+num3 = int(input("Enter frequency for 3: "))
+num2 = int(input("Enter frequency for 2: "))
+num1 = int(input("Enter frequency for 1: "))
+
+data = [4] * num4 + [3] * num3 + [2] * num2 + [1] * num1
+
+mean = statistics.mean(data)
+median = statistics.median(data)
+mode = statistics.mode(data)
+std_dev = round(statistics.stdev(data), 2) if len(data) > 1 else 0  # Rounded to 2 decimal places
+rounded_mean = round(mean, 2)  # Rounded to two decimal places
+
+print(f"Data: {data}")
+print(f"Mean: {mean}")
+print(f"Median: {median}")
+print(f"Mode: {mode}")
+print(f"Standard Deviation: {std_dev}")
