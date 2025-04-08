@@ -1,0 +1,39 @@
+import random
+
+pokemon_caught = False
+
+
+class Pokeball:
+    def __init__(self, name: str, odds: list[int]):
+        self.name = name
+        self.odds = odds
+
+    def try_catch(self):
+        return random.choice(self.odds) == 2
+
+
+# Create instances
+normal = Pokeball('Normal', [1, 1, 1, 1, 1, 1, 1, 1, 1, 2])
+great = Pokeball('Great', [1, 1, 1, 1, 1, 1, 1, 2, 2, 2])
+ultra = Pokeball('Ultra', [1, 1, 1, 1, 2, 2, 2, 2, 2, 2])
+
+while True:
+    if pokemon_caught:
+        print("Pokemon caught!")
+        break
+
+    trainer_choice = input("Normal, Great, Ultra, or Master? ").lower()
+
+    if trainer_choice == 'normal':
+        pokemon_caught = normal.try_catch()
+    elif trainer_choice == 'great':
+        pokemon_caught = great.try_catch()
+    elif trainer_choice == 'ultra':
+        pokemon_caught = ultra.try_catch()
+    elif trainer_choice == 'master':
+        pokemon_caught = True
+    else:
+        print("Invalid choice, please choose a valid Pokeball.")
+
+    if not pokemon_caught:
+        print("Didn't catch the Pokemon.")
